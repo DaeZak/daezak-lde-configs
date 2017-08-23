@@ -1,4 +1,4 @@
-.sw[op]
+*.sw[opn]
 .vim/.netrwhist
 .vim/bundle
 .tmux/plugins
