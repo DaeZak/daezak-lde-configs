@@ -18,6 +18,9 @@ Plugin 'https://github.com/StanAngeloff/php.vim.git'    "Syntax file for php
 Plugin 'https://github.com/rust-lang/rust.vim.git'      "Syntax file for rust
 Plugin 'vim-perl/vim-perl'                              "Syntax file for perl
 Plugin 'mustache/vim-mustache-handlebars'               "Syntax file for handlebars
+Plugin 'https://github.com/leafgarland/typescript-vim.git'      "Syntax file for typescript
+Plugin 'Quramy/vim-js-pretty-template'                          "Syntax file for js template strings
+Plugin 'jason0x43/vim-js-indent'                                "Indenter file for js/typescript
 
 Plugin 'vim-airline/vim-airline'                        "Enhanced status bar
 Plugin 'vim-airline/vim-airline-themes'                 "status bar themes
@@ -56,6 +59,10 @@ set tabstop=8
 set expandtab
 set shiftround
 set smarttab
+
+" Leafgarland typescript syntax should not indent for us
+" jason0x43 will handle it for us
+let g:typescript_indent_disable = 1
 
 " Smart case and incremental search
 set ignorecase
