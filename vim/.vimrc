@@ -14,10 +14,10 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'git://github.com/tomtom/tplugin_vim.git'        "General plugin mgmt component
 
-Plugin 'https://github.com/StanAngeloff/php.vim.git'    "Syntax file for php
-Plugin 'https://github.com/rust-lang/rust.vim.git'      "Syntax file for rust
-Plugin 'vim-perl/vim-perl'                              "Syntax file for perl
-Plugin 'mustache/vim-mustache-handlebars'               "Syntax file for handlebars
+Plugin 'https://github.com/StanAngeloff/php.vim.git'            "Syntax file for php
+Plugin 'https://github.com/rust-lang/rust.vim.git'              "Syntax file for rust
+Plugin 'vim-perl/vim-perl'                                      "Syntax file for perl
+Plugin 'mustache/vim-mustache-handlebars'                       "Syntax file for handlebars
 Plugin 'https://github.com/leafgarland/typescript-vim.git'      "Syntax file for typescript
 Plugin 'Quramy/vim-js-pretty-template'                          "Syntax file for js template strings
 Plugin 'jason0x43/vim-js-indent'                                "Indenter file for js/typescript
@@ -118,5 +118,29 @@ augroup END
 " ---------------------------
 " Switch buffers with hotkeys
 set switchbuf=usetab
-nnoremap <F8> :sbnext<CR>
-nnoremap <C-F8> :sbprevious<CR>
+nnoremap <F8> :tabnext<CR>
+nnoremap <C-F8> :tabprevious<CR>
+
+" CtrlP settings and hotkeys
+" Setup some default ignores
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
+\}
+
+" Use the nearest .git directory as the cwd
+" This makes a lot of sense if you are working on a project that is in
+" version control. It also supports works with .svn, .hg, .bzr.
+let g:ctrlp_working_path_mode = 'r'
+
+" Use a leader instead of the actual named binding
+nmap <leader>p :CtrlP<cr>
+
+" Easy bindings for its various modes
+nmap <leader>bb :CtrlPBuffer<cr>
+nmap <leader>bm :CtrlPMixed<cr>
+nmap <leader>bs :CtrlPMRU<cr>
+
+" Strip trailing whitespace on save
+" ---------------------------------
+autocmd FileType c,cpp,java,perl,php,javascript,typescript autocmd BufWritePre <buffer> %s/\s\+$//e
