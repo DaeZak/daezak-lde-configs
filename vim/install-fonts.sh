@@ -1,8 +1,5 @@
 #!/bin/bash
-# Install patched powerline fonts per
-# https://github.com/powerline/fonts
-git clone https://github.com/powerline/fonts.git --depth=1 && \
-  cd fonts && \
-  ./install.sh && \
-  cd .. && \
-  rm -rf fonts
+wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+sudo mv PowerlineSymbols.otf /usr/share/fonts/
+sudo fc-cache -vf
+sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
