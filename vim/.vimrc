@@ -16,6 +16,7 @@ Plugin 'git://github.com/tomtom/tplugin_vim.git'        "General plugin mgmt com
 
 Plugin 'https://github.com/StanAngeloff/php.vim.git'            "Syntax file for php
 Plugin 'https://github.com/rust-lang/rust.vim.git'              "Syntax file for rust
+Plugin 'elixir-editors/vim-elixir'                              "Syntax file for elixir
 Plugin 'vim-perl/vim-perl'                                      "Syntax file for perl
 Plugin 'mustache/vim-mustache-handlebars'                       "Syntax file for handlebars
 Plugin 'https://github.com/leafgarland/typescript-vim.git'      "Syntax file for typescript
