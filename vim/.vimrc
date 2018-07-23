@@ -144,4 +144,4 @@ nmap <leader>bs :CtrlPMRU<cr>
 
 " Strip trailing whitespace on save
 " ---------------------------------
-autocmd FileType c,cpp,java,perl,php,javascript,typescript autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd FileType c,cpp,java,perl,php,javascript,typescript,crafttweaker autocmd BufWritePre <buffer> %s/\s\+$//e
