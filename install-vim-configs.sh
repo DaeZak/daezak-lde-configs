@@ -11,8 +11,8 @@ if [ -d "$HOME/.vim" ]; then
   mv ~/.vim ~/vim.BAK
 fi
 
-cp vim/.vimrc ~/
-cp -r vim/.vim ~/
+cp vim/vimrc-file ~/.vimrc
+cp -r vim/vim-dir ~/.vim
 
 echo "Installing vundle and vundle plugins"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim && \

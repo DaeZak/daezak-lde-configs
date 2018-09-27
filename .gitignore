@@ -1,4 +1,3 @@
 *.sw[opn]
-.vim/.netrwhist
-.vim/bundle
+vim/vim-dir/bundle
 .tmux/plugins
