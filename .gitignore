@@ -1,3 +1,4 @@
 *.sw[opn]
 vim/vim-dir/bundle
 .tmux/plugins
+tags

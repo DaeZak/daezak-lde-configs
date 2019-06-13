@@ -14,27 +14,29 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'git://github.com/tomtom/tplugin_vim.git'        "General plugin mgmt component
 
-Plugin 'https://github.com/StanAngeloff/php.vim.git'            "Syntax file for php
-Plugin 'https://github.com/rust-lang/rust.vim.git'              "Syntax file for rust
-Plugin 'elixir-editors/vim-elixir'                              "Syntax file for elixir
-Plugin 'vim-perl/vim-perl'                                      "Syntax file for perl
-Plugin 'mustache/vim-mustache-handlebars'                       "Syntax file for handlebars
-Plugin 'https://github.com/leafgarland/typescript-vim.git'      "Syntax file for typescript
-Plugin 'Quramy/vim-js-pretty-template'                          "Syntax file for js template strings
-Plugin 'jason0x43/vim-js-indent'                                "Indenter file for js/typescript
+Plugin 'https://github.com/vim-syntastic/syntastic.git'    " Syntastic syntax checking
+Plugin 'https://github.com/StanAngeloff/php.vim.git'       " Syntax file for php
+Plugin 'https://github.com/rust-lang/rust.vim.git'         " Syntax file for rust
+Plugin 'elixir-editors/vim-elixir'                         " Syntax file for elixir
+Plugin 'vim-perl/vim-perl'                                 " Syntax file for perl
+Plugin 'mustache/vim-mustache-handlebars'                  " Syntax file for handlebars
+Plugin 'https://github.com/leafgarland/typescript-vim.git' " Syntax file for typescript
+Plugin 'Quramy/vim-js-pretty-template'                     " Syntax file for js template strings
+Plugin 'jason0x43/vim-js-indent'                           " Indenter file for js/typescript
 
-Plugin 'vim-airline/vim-airline'                        "Enhanced status bar
-Plugin 'vim-airline/vim-airline-themes'                 "status bar themes
+Plugin 'vim-airline/vim-airline'        " Enhanced status bar
+Plugin 'vim-airline/vim-airline-themes' " status bar themes
 
-Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'      "CtrlP file search for vim
-Plugin 'https://github.com/vim-syntastic/syntastic.git' "Syntastic syntax checking
-
+Plugin 'https://github.com/ludovicchabant/vim-gutentags.git' " tags support with gutentags
+Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'      " CtrlP file search for vim
 Plugin 'SirVer/ultisnips'                               " Track the engine.
 Plugin 'honza/vim-snippets'                             " Snippets are separate from the engine
-
+Plugin 'https://github.com/ervandew/supertab.git'       " Supertab for snippets
+Plugin 'https://github.com/Valloric/YouCompleteMe.git'  " Snippet auto completion
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
 syntax on
 
 " Setup theme, styling and workflow
@@ -45,25 +47,15 @@ if has('unix')
 endif
 
 colorscheme zenburn
-let g:airline_theme='angr'
-
-" Enable airline tablines
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline_powerline_fonts = 1
 
 " Setup coding environment and standards
 " --------------------------------------
 " Basic coding standards
-set shiftwidth=2
-set tabstop=8
+set shiftwidth=4
+set tabstop=4
 set expandtab
 set shiftround
 set smarttab
-
-" Leafgarland typescript syntax should not indent for us
-" jason0x43 will handle it for us
-let g:typescript_indent_disable = 1
 
 " Smart case and incremental search
 set ignorecase
@@ -83,49 +75,48 @@ set scrolloff=5 " keep 5 lines above/below the cursor
 " Status line
 set laststatus=2
 
-" UltiSnips - Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsListSnippets="<s-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-" Syntastic configuration options
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" Rust syntax checking options
-" let g:rustfmt_autosave = 1
-
-" let g:php_syntax_extensions_enabled = 1
-
-" PHP syntax highlighting overrides
-function! PhpSyntaxOverride()
-  hi! def link phpDocTags  phpDefine
-  hi! def link phpDocParam phpType
-endfunction
-
-augroup phpSyntaxOverride
-  autocmd!
-  autocmd FileType php call PhpSyntaxOverride()
-augroup END
-
 " Hotkeys, general
-" ---------------------------
-" Switch buffers with hotkeys
+" >>---------------------------
+
+" Switch buffers with F8 hot keys
 set switchbuf=usetab
 nnoremap <F8> :tabnext<CR>
 nnoremap <C-F8> :tabprevious<CR>
 
+" <<---------------------------
+
+" Vim Airline tablines settings
+" >>----------------------------------------
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline_powerline_fonts = 1
+let g:airline_theme='angr'
+" <<----------------------------------------
+
+" UltiSnips - Trigger configuration. 
+" >>-----------------------------------------------
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+hi Pmenu guifg=#bcbcbc guibg=#2d2d35 gui=NONE
+hi PmenuSel guifg=White guibg=#8787d7 gui=NONE
+" <<-----------------------------------------------
+
 " CtrlP settings and hotkeys
-" Setup some default ignores
+" >>---------------------------------------------
+" Some default ignores
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site|vendor|node_modules)$',
   \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
 \}
 
@@ -141,7 +132,43 @@ nmap <leader>p :CtrlP<cr>
 nmap <leader>bb :CtrlPBuffer<cr>
 nmap <leader>bm :CtrlPMixed<cr>
 nmap <leader>bs :CtrlPMRU<cr>
+" <<--------------------------------------------
+
+" Functions and Auto functions
+" >>---------------------------------
 
 " Strip trailing whitespace on save
-" ---------------------------------
 autocmd FileType c,cpp,java,perl,php,javascript,typescript,crafttweaker autocmd BufWritePre <buffer> %s/\s\+$//e
+" <<---------------------------------
+
+" Syntastic configuration options
+" >>------------------------------------------
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" <<------------------------------------------
+
+" Leafgarland typescript syntax should not indent for us
+" jason0x43 will handle it for us
+let g:typescript_indent_disable = 1
+
+" Rust syntax checking options
+" let g:rustfmt_autosave = 1
+
+" PHP Syntax highlight settings
+let g:php_syntax_extensions_enabled = ["bcmath", "bz2", "core", "curl", "date", "dom", "gd", "gettext", "hash", "iconv", "json", "libxml", "mbstring", "mcrypt", "mhash", "openssl", "pcre", "pdo", "pgsql", "phar", "reflection", "session", "simplexml", "sockets", "spl", "sqlite3", "standard", "tokenizer", "xml", "xmlreader", "xmlwriter", "zip", "zlib"]
+let php_html_load=0
+
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags  phpDefine
+  hi! def link phpDocParam phpType
+  hi! phpUseNamespaceSeparator ctermfg=103 ctermbg=NONE guifg=#8787af guibg=NONE gui=NONE
+  hi! phpClassNamespaceSeparator ctermfg=103 ctermbg=NONE guifg=#8787af guibg=NONE gui=NONE
+endfunction
+
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
+
