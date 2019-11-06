@@ -11,6 +11,8 @@ apt-get install -y \
     ccache \
     cmake \
 	curl \
+    devscripts \
+    equivs \
     exfat-fuse \
 	exfat-utils \
 	exuberant-ctags \
