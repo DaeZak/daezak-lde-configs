@@ -16,11 +16,10 @@ Plugin 'git://github.com/tomtom/tplugin_vim.git'        "General plugin mgmt com
 
 Plugin 'https://github.com/vim-syntastic/syntastic.git'    " Syntastic syntax checking
 Plugin 'https://github.com/StanAngeloff/php.vim.git'       " Syntax file for php
-Plugin 'https://github.com/rust-lang/rust.vim.git'         " Syntax file for rust
-Plugin 'elixir-editors/vim-elixir'                         " Syntax file for elixir
 Plugin 'vim-perl/vim-perl'                                 " Syntax file for perl
 Plugin 'mustache/vim-mustache-handlebars'                  " Syntax file for handlebars
 Plugin 'https://github.com/leafgarland/typescript-vim.git' " Syntax file for typescript
+Plugin 'fatih/vim-go'
 Plugin 'Quramy/vim-js-pretty-template'                     " Syntax file for js template strings
 Plugin 'jason0x43/vim-js-indent'                           " Indenter file for js/typescript
 
