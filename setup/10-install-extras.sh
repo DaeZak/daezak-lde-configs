@@ -2,6 +2,11 @@
 
 set -x
 
+#Install A/V tooling for working with video editing, capture and conversion
+apt-get install -y \
+    obs-studio \
+    ffmpeg
+
 cd /tmp
 
 #Discord

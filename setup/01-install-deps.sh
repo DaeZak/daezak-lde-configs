@@ -33,6 +33,7 @@ apt-get install -y \
       libwebp-dev \
       webp \
     jq \
+    libclang-dev \
     mysql-client-core-8.0 \
     ninja-build \
     postgresql-client-common \
@@ -41,6 +42,9 @@ apt-get install -y \
     software-properties-common \
     snapd \
     sqlite3 \
+    texlive-full \
+    texlive-fonts-recommended \
+    texlive-fonts-extra \
     tmux \
     tree \
     wl-clipboard \
