@@ -1,0 +1,6 @@
+[main]
+enable_checks = true
+enable_global_fixes = true
+
+[path]
+cache_dir = ~/.cache/protonfixes
