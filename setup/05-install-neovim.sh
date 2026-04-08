@@ -1,4 +1,7 @@
-#!/usr/bin/env
+#!/usr/bin/env bash
+
+set -x
+
 echo "Changing to git-working"
 cd ~/git-working
 echo "Cloning neovim repo"

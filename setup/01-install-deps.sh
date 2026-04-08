@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+set -x
+
 apt update
 sudo apt upgrade -y
 sudo apt autoremove
@@ -33,7 +36,4 @@ apt-get install -y \
     tree \
     wget
 
-#git clone https://luajit.org/git/luajit.git /home/dearly/git-working
-#cd /home/dearly/git-working/luajit
-#make && sudo make install
 #Cursor and git-lfs
