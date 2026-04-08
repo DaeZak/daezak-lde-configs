@@ -21,9 +21,17 @@ apt-get install -y \
     gettext \
     fdisk \
     flex \
+    fzf \
     gdebi \
     git \
     htop \
+    imagemagick \
+      #Deps of imagemagick
+      libpng-dev \
+      libjpeg-dev \
+      libtiff-dev \
+      libwebp-dev \
+      webp \
     jq \
     mysql-client-core-8.0 \
     ninja-build \
@@ -31,9 +39,11 @@ apt-get install -y \
     python3-dev \
     python3-gpg \
     software-properties-common \
+    snapd \
     sqlite3 \
     tmux \
     tree \
+    wl-clipboard \
     wget
 
 #Cursor and git-lfs

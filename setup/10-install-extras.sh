@@ -4,11 +4,6 @@ set -x
 
 cd /tmp
 
-#Cursor
-wget -O cursor.deb https://api2.cursor.sh/updates/download/golden/linux-x64-deb/cursor/3.0
-sudo gdebi cursor.deb
-rm -f cursor.deb
-
 #Discord
 wget -O discord-latest.deb https://discord.com/api/download?platform=linux
 sudo gdebi discord-latest.deb
