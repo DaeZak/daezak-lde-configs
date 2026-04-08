@@ -50,4 +50,5 @@ apt-get install -y \
     wl-clipboard \
     wget
 
-#Cursor and git-lfs
+#Fix sudo for aliases
+echo "alias sudo='sudo '" | sudo tee -a /home/dearly/.bash_aliases

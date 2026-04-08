@@ -2,6 +2,8 @@
 
 set -x
 
+echo "alias python='python3'" | sudo tee -a /home/dearly/.bash_aliases
+
 #Install RUST
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   #For nvim
