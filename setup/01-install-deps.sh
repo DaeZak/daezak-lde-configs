@@ -15,12 +15,15 @@ apt-get install -y \
     devscripts \
     equivs \
     exfatprogs \
+    gettext \
     fdisk \
     flex \
+    gdebi \
     git \
     htop \
     jq \
     mysql-client-core-8.0 \
+    ninja-build \
     postgresql-client-common \
     python3-dev \
     python3-gpg \
