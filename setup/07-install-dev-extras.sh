@@ -5,12 +5,8 @@ apt-get install -y \
     hexchat \
     krita \
     python3-pip \
-    podman \
-    podman-docker \
-    # for podman-docker dependency
-    python3-setuptools \
     vlc
-#Follow up podman with docker-compose-plugin install; which has extra steps
+
 # Add Docker's official GPG key:
 sudo apt update
 sudo apt install ca-certificates curl
@@ -29,7 +25,8 @@ Signed-By: /etc/apt/keyrings/docker.asc
 EOF
 
 sudo apt update
-sudo apt install docker-compose-plugin
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+#echo 'compose_providers = ["/usr/libexec/docker/cli-plugins/docker-compose"]' | sudo tee -a /etc/containers/containers.conf
 
 #Install AWS CLI
 cd /tmp
